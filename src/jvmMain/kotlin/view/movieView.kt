@@ -1,8 +1,9 @@
-package composable
+package view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -23,9 +24,8 @@ import models.movies
 
 @Composable
 fun drawMovieView() {
-    LazyColumn(
-    ) {
-        items(movies){movie ->
+    LazyColumn {
+        items(movies) { movie ->
             drawMovieItem(movie)
         }
     }
@@ -35,14 +35,14 @@ fun drawMovieView() {
 private fun drawMovieItem(movie: Movie) {
     Column(
         modifier = Modifier
-//            .width(200.dp)
-            .padding(16.dp)
+//                    .width(200.dp)
+                    .padding(16.dp)
     ) {
         Image(
             bitmap = movie.image.loadImageBitmap(),
             contentDescription = "Movie cover",
             modifier = Modifier
-                .clip(RoundedCornerShape(4.dp)),
+                .clip(RoundedCornerShape(4.dp))
         )
         Row(
             modifier = Modifier.fillMaxWidth()
@@ -59,9 +59,8 @@ private fun drawMovieItem(movie: Movie) {
                     Icons.Rounded.Star,
                     contentDescription = "movie note",
                     Modifier.height(16.dp),
-                    tint = Color.Yellow,
-
-                    )
+                    tint = Color.Yellow
+                )
                 Text(
                     "${movie.note}",
                     modifier = Modifier
