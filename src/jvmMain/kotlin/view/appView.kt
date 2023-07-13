@@ -8,16 +8,17 @@ import androidx.compose.material.Surface
 import androidx.compose.material.darkColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import models.Movie
 
 @Composable
 @Preview
-fun App() {
+fun App(movies : List<Movie>) {
     MaterialTheme(
         colors = darkColors()
     ) {
         Surface {
             Box(modifier = Modifier.fillMaxSize()) {
-                drawMovieView()
+                drawMovieView(movies)
             }
         }
 

@@ -20,10 +20,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import extensions.loadImageBitmap
 import models.Movie
-import models.movies
 
 @Composable
-fun drawMovieView() {
+fun drawMovieView(movies : List<Movie>) {
     LazyColumn {
         items(movies) { movie ->
             drawMovieItem(movie)
