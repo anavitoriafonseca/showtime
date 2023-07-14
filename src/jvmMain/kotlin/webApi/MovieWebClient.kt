@@ -1,6 +1,6 @@
 package webApi
 
-import com.squareup.moshi.*
+import com.squareup.moshi.Moshi
 import models.Movie
 import models.Top250Data
 import models.toMovie
@@ -26,7 +26,6 @@ class MovieWebClient {
                     val movies = top250Data?.items?.map { it.toMovie() }
                     movies?.let(onSuccess)
                 }
-//                println(response.body()?.string())
             }
 
             override fun onFailure(

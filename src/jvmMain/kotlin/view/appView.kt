@@ -12,7 +12,7 @@ import models.Movie
 
 @Composable
 @Preview
-fun App(movies : List<Movie>) {
+fun App(movies: List<Movie>) {
     MaterialTheme(
         colors = darkColors()
     ) {

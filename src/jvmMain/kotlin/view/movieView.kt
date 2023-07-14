@@ -2,8 +2,9 @@ package view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -22,8 +23,8 @@ import extensions.loadImageBitmap
 import models.Movie
 
 @Composable
-fun drawMovieView(movies : List<Movie>) {
-    LazyColumn {
+fun drawMovieView(movies: List<Movie>) {
+    LazyVerticalGrid(columns = GridCells.Adaptive(150.dp)) {
         items(movies) { movie ->
             drawMovieItem(movie)
         }
@@ -34,8 +35,8 @@ fun drawMovieView(movies : List<Movie>) {
 private fun drawMovieItem(movie: Movie) {
     Column(
         modifier = Modifier
-//                    .width(200.dp)
-                    .padding(16.dp)
+            .width(200.dp)
+            .padding(16.dp)
     ) {
         Image(
             bitmap = movie.image.loadImageBitmap(),
